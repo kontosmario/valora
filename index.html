@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valora — Cuánto cobrar</title>
+<meta name="description" content="Valora es una app para calcular cuánto cobrar por tu trabajo: suma tus materiales, tu tiempo y tu ganancia. Funciona sin internet y no recolecta ningún dato.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%23211E1A'/%3E%3Cpath d='M20 8.5 L28 16.5 L20 31.5 L12 16.5 Z M12 16.5 L28 16.5 M20 8.5 L16.5 16.5 M20 8.5 L23.5 16.5' stroke='%23D2AC33' stroke-width='1.5' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#211E1A; --surface:#2B2723; --gold:#D2AC33; --gold-soft:#EBCB6E;
+    --ivory:#F4EEE3; --muted:#BDB2A3; --ok:#97CC84; --line:rgba(255,255,255,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--ivory);
+    font-family:'Nunito',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+    font-size:17px;line-height:1.65;
+    background-image:radial-gradient(900px 420px at 50% -120px, rgba(210,172,51,.07), transparent 65%);
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px 90px}
+  h1,h2,h3{font-family:'Marcellus',Georgia,serif;font-weight:400;letter-spacing:.01em}
+  a{color:var(--gold-soft)}
+
+  header{text-align:center;padding:70px 0 48px}
+  .gema{width:88px;height:88px;margin:0 auto 22px;border-radius:50%;
+    background:var(--surface);border:1px solid var(--line);
+    display:grid;place-items:center;
+    box-shadow:0 16px 40px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06)}
+  h1{font-size:clamp(38px,7vw,54px);line-height:1.1}
+  .sub{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+    font-weight:800;margin-top:10px}
+  .lede{color:var(--muted);max-width:520px;margin:22px auto 0;font-size:18px}
+
+  nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:34px 0 10px}
+  nav a{display:inline-block;padding:9px 18px;border-radius:999px;
+    border:1px solid var(--line);background:var(--surface);
+    text-decoration:none;font-weight:800;font-size:14.5px;color:var(--gold-soft)}
+  nav a:hover{border-color:rgba(210,172,51,.45)}
+
+  section{margin-top:64px;scroll-margin-top:24px}
+  section > h2{font-size:clamp(26px,4vw,34px);margin-bottom:8px}
+  .fecha{color:var(--muted);font-size:14px;margin-bottom:24px}
+  h3{font-size:20px;color:var(--gold-soft);margin:28px 0 8px}
+  p{color:var(--muted);margin-bottom:12px}
+  b,strong{color:var(--ivory);font-weight:800}
+  ul{margin:0 0 12px 22px}
+  li{color:var(--muted);margin-bottom:7px}
+
+  .destacado{background:rgba(151,204,132,.08);border:1px solid rgba(151,204,132,.22);
+    border-radius:16px;padding:18px 20px;margin-bottom:26px}
+  .destacado p{color:var(--ok);font-weight:800;margin:0}
+
+  .tarjeta{background:var(--surface);border:1px solid var(--line);
+    border-radius:20px;padding:26px 24px;margin-top:18px}
+  .tarjeta p:last-child{margin-bottom:0}
+  .mail{font-family:'Marcellus',serif;font-size:clamp(20px,3.6vw,26px);color:var(--gold-soft);
+    word-break:break-all;text-decoration:none;display:inline-block;margin:4px 0 10px}
+
+  footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--line);
+    text-align:center;color:var(--muted);font-size:14px}
+
+  @media (max-width:520px){
+    header{padding:48px 0 34px}
+    section{margin-top:48px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="gema" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 40 40" fill="none">
+        <path d="M20 8.5 L28 16.5 L20 31.5 L12 16.5 Z M12 16.5 L28 16.5 M20 8.5 L16.5 16.5 M20 8.5 L23.5 16.5"
+              stroke="#D2AC33" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1>Valora</h1>
+    <div class="sub">Cuánto cobrar</div>
+    <p class="lede">Una app para calcular cuánto cobrar por tu trabajo: suma tus materiales,
+      tu tiempo y tu ganancia. Funciona sin internet y no recolecta ningún dato.</p>
+    <nav>
+      <a href="#privacidad">Privacidad</a>
+      <a href="#terminos">Términos de uso</a>
+      <a href="#soporte">Soporte</a>
+    </nav>
+  </header>
+
+  <section id="que-es">
+    <h2>Qué es Valora</h2>
+    <p>Valora está pensada para quien cobra por su trabajo y nunca sabe bien cuánto pedir:
+      manicuristas, peluqueras, tatuadores, reposteros, artesanos y cualquier oficio a pedido.</p>
+    <p>Cargás una vez lo que gastás —materiales, lo que entregás al cliente, tus gastos del mes
+      y cuánto vale tu hora— y a partir de ahí la app te dice, en segundos, cuánto cobrar por
+      cada trabajo, con tu margen de ganancia incluido.</p>
+    <p>Todo el cálculo pasa en tu teléfono. <b>No necesita internet, no tiene cuentas y no hay
+      publicidad.</b></p>
+  </section>
+
+  <section id="privacidad">
+    <h2>Política de privacidad</h2>
+    <p class="fecha">Última actualización: 28 de agosto de 2026</p>
+
+    <div class="destacado">
+      <p>Resumen: Valora no recolecta ningún dato tuyo. Ninguno.</p>
+    </div>
+
+    <h3>Qué guarda la app</h3>
+    <p>Todo lo que cargás —materiales, kit, gastos del mes, el valor de tu hora, los extras,
+      tus mensajes para copiar y tus preferencias— se guarda únicamente en la memoria de tu
+      teléfono. No viaja a ningún servidor, ni nuestro ni de terceros.</p>
+
+    <h3>Qué no hacemos</h3>
+    <ul>
+      <li>No recolectamos datos personales ni de uso.</li>
+      <li>No usamos analítica, publicidad ni rastreadores.</li>
+      <li>No hay cuentas: no te pedimos registro, mail ni teléfono.</li>
+      <li>No compartimos ni vendemos información a nadie.</li>
+      <li>La app funciona sin conexión a internet.</li>
+    </ul>
+
+    <h3>El portapapeles</h3>
+    <p>Cuando tocás “Copiar el precio” o “Copiar mensaje para tu cliente”, el texto se copia al
+      portapapeles de tu teléfono para que lo pegues donde quieras. Ese texto lo administra iOS;
+      nosotros no lo vemos ni lo guardamos.</p>
+
+    <h3>Cómo borrar tus datos</h3>
+    <p>Desde Ajustes → Datos → “Volver a los valores de ejemplo” borrás lo que cargaste.
+      Si desinstalás la app, todo lo guardado se elimina del teléfono.</p>
+
+    <h3>Menores</h3>
+    <p>Valora es una herramienta de trabajo, no está dirigida a menores de 13 años.
+      De todos modos, no recolecta datos de nadie.</p>
+
+    <h3>Cambios</h3>
+    <p>Si esta política cambia, vas a ver la versión actualizada en esta página y dentro de la
+      app, en Ajustes → Legal.</p>
+
+    <h3>Contacto</h3>
+    <p>Cualquier duda, escribinos a <a href="mailto:kontosmario@gmail.com">kontosmario@gmail.com</a>.</p>
+  </section>
+
+  <section id="terminos">
+    <h2>Términos de uso</h2>
+    <p class="fecha">Última actualización: 28 de agosto de 2026</p>
+
+    <div class="destacado">
+      <p>En resumen: Valora te ayuda a calcular, pero la decisión de cuánto cobrar siempre es tuya.</p>
+    </div>
+
+    <h3>Qué es Valora</h3>
+    <p>Una calculadora que estima cuánto conviene cobrar por un trabajo, a partir de los costos,
+      el valor de tu hora y el margen de ganancia que vos cargás.</p>
+
+    <h3>Los números son tuyos</h3>
+    <p>Los precios que muestra la app salen de los datos que vos ingresás. Son una estimación para
+      ayudarte a decidir, no asesoramiento profesional, contable ni financiero.</p>
+
+    <h3>Sin garantías</h3>
+    <p>La app se ofrece “tal cual”. Ponemos cuidado en que los cálculos sean correctos, pero no
+      garantizamos que esté libre de errores. Revisá los números antes de pasarle un precio a un
+      cliente.</p>
+
+    <h3>Responsabilidad</h3>
+    <p>No nos hacemos responsables por decisiones comerciales tomadas a partir de los resultados
+      de la app, ni por la pérdida de los datos guardados en tu teléfono.</p>
+
+    <h3>Uso de la app</h3>
+    <p>Podés usar Valora gratis para tu actividad. No está permitido copiarla, modificarla ni
+      redistribuirla sin autorización.</p>
+
+    <h3>Licencia estándar de Apple</h3>
+    <p>El uso de esta app también está sujeto al
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Contrato
+      de Licencia de Usuario Final estándar de Apple</a>.</p>
+  </section>
+
+  <section id="soporte">
+    <h2>Soporte</h2>
+    <p>¿Encontraste un error, algo no te cierra o se te ocurre una mejora? Escribinos: contestamos
+      todos los mensajes.</p>
+
+    <div class="tarjeta">
+      <h3 style="margin-top:0">Contacto</h3>
+      <a class="mail" href="mailto:kontosmario@gmail.com">kontosmario@gmail.com</a>
+      <p>Respondemos dentro de las 72 horas hábiles. Si es un error, contanos qué modelo de iPhone
+        usás y qué estabas haciendo cuando pasó.</p>
+      <p><b>Responsable:</b> Mario Kontos · Córdoba, Argentina</p>
+    </div>
+
+    <div class="tarjeta">
+      <h3 style="margin-top:0">Preguntas frecuentes</h3>
+      <p><b>¿Necesito internet?</b> No. Valora funciona completamente sin conexión.</p>
+      <p><b>¿Se pierden mis datos si cambio de teléfono?</b> Sí. Todo se guarda solo en el
+        dispositivo, así que al cambiar de teléfono hay que cargar los costos de nuevo.</p>
+      <p><b>¿Sirve para otros oficios además de uñas?</b> Sí. Los ejemplos vienen de manicuría,
+        pero podés borrarlos y cargar los materiales y extras de tu propio rubro.</p>
+      <p><b>¿Tiene costo?</b> No, es gratis y no tiene compras dentro de la app.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Valora — Cuánto cobrar · Hecho en Córdoba, Argentina</p>
+  </footer>
+
+</div>
+</body>
+</html>
